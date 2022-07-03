@@ -39,14 +39,14 @@ public class DependencyLookupDemo {
         // 启动 Spring 应用上下文
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-lookup-context.xml");
         // 按照类型查找
-        lookupByType(beanFactory);
+        /*lookupByType(beanFactory);
         // 按照类型查找结合对象
         lookupCollectionByType(beanFactory);
         // 通过注解查找对象
-        lookupByAnnotationType(beanFactory);
+        lookupByAnnotationType(beanFactory);*/
 
 //        lookupInRealTime(beanFactory);
-//        lookupInLazy(beanFactory);
+        lookupInLazy(beanFactory);
     }
 
     private static void lookupByAnnotationType(BeanFactory beanFactory) {
