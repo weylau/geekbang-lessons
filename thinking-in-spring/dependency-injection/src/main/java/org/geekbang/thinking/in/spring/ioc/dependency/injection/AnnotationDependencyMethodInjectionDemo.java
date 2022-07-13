@@ -51,6 +51,7 @@ public class AnnotationDependencyMethodInjectionDemo {
         return new UserHolder(user);
     }
 
+
     public static void main(String[] args) {
 
         // 创建 BeanFactory 容器

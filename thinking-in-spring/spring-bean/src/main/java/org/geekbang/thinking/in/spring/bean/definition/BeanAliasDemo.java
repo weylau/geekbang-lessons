@@ -18,6 +18,7 @@ package org.geekbang.thinking.in.spring.bean.definition;
 
 import org.geekbang.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -27,6 +28,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @since
  */
 public class BeanAliasDemo {
+
+    @Autowired public void user(User userBean){}
+
 
     public static void main(String[] args) {
         // 配置 XML 配置文件

@@ -47,16 +47,16 @@ public class DependencyInjectionDemo {
         System.out.println(userRepository.getBeanFactory());
 
 
-        ObjectFactory userFactory = userRepository.getObjectFactory();
-
-        System.out.println(userFactory.getObject() == applicationContext);
+//        ObjectFactory userFactory = userRepository.getObjectFactory();
+//
+//        System.out.println(userFactory.getObject() == applicationContext);
 
         // 依赖查找（错误）
 //        System.out.println(beanFactory.getBean(BeanFactory.class));
 
         // 依赖来源三：容器內建 Bean
-        Environment environment = applicationContext.getBean(Environment.class);
-        System.out.println("获取 Environment 类型的 Bean：" + environment);
+//        Environment environment = applicationContext.getBean(Environment.class);
+//        System.out.println("获取 Environment 类型的 Bean：" + environment);
     }
 
     private static void whoIsIoCContainer(UserRepository userRepository, ApplicationContext applicationContext) {

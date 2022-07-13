@@ -50,7 +50,7 @@ public class QualifierAnnotationDependencyInjectionDemo {
     // user2 -> @Qualifier
 
     @Autowired
-    private Collection<User> allUsers; // 2 Beans = user + superUser
+    private Collection<User> allUsers; // 2 Beans = user + superUser  //如果是静态方法生成的bean将能注入
 
     @Autowired
     @Qualifier
@@ -68,22 +68,28 @@ public class QualifierAnnotationDependencyInjectionDemo {
 
     @Bean
     @Qualifier // 进行逻辑分组
-    public static User user2() {
+    public User user2() {
         return createUser(8L);
 
     }
 
     @Bean
     @UserGroup
-    public static User user3() {
+    public User user3() {
         return createUser(9L);
     }
 
     @Bean
     @UserGroup
-    public static User user4() {
+    public User user4() {
         return createUser(10L);
     }
+
+    /*@Bean
+    @Qualifier // 进行逻辑分组
+    public static User user5() {
+        return createUser(11L);
+    }*/
 
     private static User createUser(Long id) {
         User user = new User();
@@ -115,12 +121,17 @@ public class QualifierAnnotationDependencyInjectionDemo {
         // 期待输出 user Bean
         System.out.println("demo.namedUser = " + demo.namedUser);
         // 期待输出 superUser user user1 user2
-        System.out.println("demo.allUsers = " + demo.allUsers);
+        System.out.println("demo.allUsers ======================start======================== ");
+        demo.allUsers.stream().forEach(System.out::println);
+        System.out.println("demo.allUsers ======================end======================== ");
         // 期待输出 user1 user2
-        System.out.println("demo.qualifiedUsers = " + demo.qualifiedUsers);
+        System.out.println("demo.qualifiedUsers ======================start======================== ");
+        demo.qualifiedUsers.stream().forEach(System.out::println);
+        System.out.println("demo.qualifiedUsers ======================end======================== ");
         // 期待输出 user3 user4
-        System.out.println("demo.groupedUsers = " + demo.groupedUsers);
-
+        System.out.println("demo.groupedUsers ======================start======================== ");
+        demo.groupedUsers.stream().forEach(System.out::println);
+        System.out.println("demo.groupedUsers ======================end======================== ");
 
         // 显示地关闭 Spring 应用上下文
         applicationContext.close();
